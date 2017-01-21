@@ -21,11 +21,11 @@ def findSong(name):
 
     """
     spotify = spotipy.Spotify()
-    results = spotify.search(q='track:' + name, type='track')
+    results = spotify.search(q=name, type='track')
 
     items = results['tracks']['items']
 
-    print(items[0])
+    return items[0] if len(items) > 0 else None
 
 
 def findArtist(arg1):
