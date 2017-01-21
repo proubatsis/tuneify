@@ -1,16 +1,9 @@
 from flask import Flask, jsonify
+from blueprint import spotify
 
 app = Flask(__name__)
 
-
-@app.route("/")
-def index():
-    return "Plinghee"
-
-
-@app.route("/name")
-def name():
-    return "Shrijan"
+app.register_blueprint(spotify.sp_app)
 
 if __name__ == "__main__":
     app.run()
