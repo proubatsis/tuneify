@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Tuneify</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="jumbotron text-center">
+                    <h1>Tuneify</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container input-group">
+                    <span class="input-group-addon">/r/</span><input id="subredditInput" class="form-control input-lg" type="text" placeholder="music" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="container input-group">
+                    <span class="input-group-addon">Name:</span><input id="playlistInput" class="form-control input-lg" type="text" placeholder="New playlist name" />
+                </div>
+            </div>
+            <div class="row">
+                {% if has_spotify_token %}
+                    <div class="container">
+                        <button class="btn btn-default btn-block" id="createSpotifyPlaylistButton">Create Spotify Playlist</button>
+                    </div>
+                {% else %}
+                    <div class="container">
+                        <a class="btn btn-primary btn-block" href="/spotify/login">Sign into Spotify</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

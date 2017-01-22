@@ -13,7 +13,7 @@ def login_redirect():
 
 @sp_app.route("/spotify/callback")
 def callback():
-    resp = make_response()
+    resp = make_response(redirect("/"))
     code = request.args.get("code")
     spotify_token = AUTH.get_access_token(code)["access_token"]
     resp.set_cookie("spotify_token", spotify_token)
