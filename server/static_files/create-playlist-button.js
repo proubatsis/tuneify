@@ -1,23 +1,27 @@
 $(document).ready(function() {
     var is_loading = false;
     var btn = $("#createSpotifyPlaylistButton");
-    var btnText = btn.text();
+    var btnIco = $(btn).find("i");
+    var btnPar = $(btn).find("p");
+    var btnText = btnPar.text();
 
     var startLoading = function() {
         is_loading = true;
-        btn.text("");
-        btn.addClass("fa-refresh");
-        btn.addClass("fa-spin");
+        btnPar.text("");
+        btnIco.addClass("fa");
+        btnIco.addClass("fa-refresh");
+        btnIco.addClass("fa-spin");
     };
 
     var doneLoading = function() {
         is_loading = false;
-        btn.text(btnText);
+        btnPar.text(btnText);
     };
 
     var removeSpinner = function() {
-        btn.removeClass("fa-refresh");
-        btn.removeClass("fa-spin");
+        btnIco.removeClass("fa-refresh");
+        btnIco.removeClass("fa-refresh");
+        btnIco.removeClass("fa-spin");
     };
 
     btn.click(function() {
