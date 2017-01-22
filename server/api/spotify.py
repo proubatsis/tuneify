@@ -10,8 +10,6 @@
 # import sys
 import spotipy
 
-name = "Drake"
-
 
 def findSong(name):
     """TODO: Docstring for findSong.
@@ -42,6 +40,10 @@ def findArtist(arg1):
         artist = items[0]
         print(artist['name'], artist['images'][0]['url'])
 
+
+def current_user_context(token):
+    spotify = spotipy.Spotify(auth=token)
+    return spotify.me()
 
 if __name__ == "__main__":
     findSong("Jimi Hendrix - Purple Haze")
